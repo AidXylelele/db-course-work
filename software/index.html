@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Реалізація інформаційного та програмного забезпечення | SureWay</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/db-course-work/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="description" content="Курсова робота з дисципліни "Бази даних"">
+    
+    <link rel="preload" href="/db-course-work/assets/css/0.styles.8d218db2.css" as="style"><link rel="preload" href="/db-course-work/assets/js/app.764ea130.js" as="script"><link rel="preload" href="/db-course-work/assets/js/2.1f2f047a.js" as="script"><link rel="preload" href="/db-course-work/assets/js/22.0397e7ef.js" as="script"><link rel="prefetch" href="/db-course-work/assets/js/10.56a3aef4.js"><link rel="prefetch" href="/db-course-work/assets/js/11.7227b195.js"><link rel="prefetch" href="/db-course-work/assets/js/12.60f57a9d.js"><link rel="prefetch" href="/db-course-work/assets/js/13.c07a606f.js"><link rel="prefetch" href="/db-course-work/assets/js/14.42db9671.js"><link rel="prefetch" href="/db-course-work/assets/js/15.e3c321ec.js"><link rel="prefetch" href="/db-course-work/assets/js/16.512b5e68.js"><link rel="prefetch" href="/db-course-work/assets/js/17.4e00c6a7.js"><link rel="prefetch" href="/db-course-work/assets/js/18.a29abc6b.js"><link rel="prefetch" href="/db-course-work/assets/js/19.e94f93c6.js"><link rel="prefetch" href="/db-course-work/assets/js/20.87bb0542.js"><link rel="prefetch" href="/db-course-work/assets/js/21.44d37fe6.js"><link rel="prefetch" href="/db-course-work/assets/js/23.a3cd98a8.js"><link rel="prefetch" href="/db-course-work/assets/js/24.e3eee901.js"><link rel="prefetch" href="/db-course-work/assets/js/25.4d9e7944.js"><link rel="prefetch" href="/db-course-work/assets/js/26.87ff770b.js"><link rel="prefetch" href="/db-course-work/assets/js/3.7b42dac5.js"><link rel="prefetch" href="/db-course-work/assets/js/4.3a8d9edb.js"><link rel="prefetch" href="/db-course-work/assets/js/5.8b0efd2b.js"><link rel="prefetch" href="/db-course-work/assets/js/6.fd438f2f.js"><link rel="prefetch" href="/db-course-work/assets/js/7.9009afd0.js"><link rel="prefetch" href="/db-course-work/assets/js/8.e700beb6.js"><link rel="prefetch" href="/db-course-work/assets/js/9.cce8dc66.js">
+    <link rel="stylesheet" href="/db-course-work/assets/css/0.styles.8d218db2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/db-course-work/" class="home-link router-link-active"><!----> <span class="site-name">SureWay</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/db-course-work/" class="nav-link">
+  Початок
+</a></div> <a href="https://github.com/AidXylelele/db-course-work" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/db-course-work/" class="nav-link">
+  Початок
+</a></div> <a href="https://github.com/AidXylelele/db-course-work" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/db-course-work/intro/" class="sidebar-link">Вступ</a></li><li><section class="sidebar-group collapsable depth-0"><a href="/db-course-work/requirements/" class="sidebar-heading clickable"><span>Розроблення загальних вимог до системи</span> <span class="arrow right"></span></a> <!----></section></li><li><a href="/db-course-work/use%20cases/" class="sidebar-link">Розроблення вимог до функціональности системи</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/db-course-work/use%20cases/#_1-модель-прецедентів" class="sidebar-link">1) Модель прецедентів</a></li><li class="sidebar-sub-header"><a href="/db-course-work/use%20cases/#_2-схеми-використання-для-гостя" class="sidebar-link">2) Схеми використання для гостя.</a></li><li class="sidebar-sub-header"><a href="/db-course-work/use%20cases/#_3-схеми-використання-для-користувача" class="sidebar-link">3) Схеми використання для користувача.</a></li><li class="sidebar-sub-header"><a href="/db-course-work/use%20cases/#_4-сценаріи-реєстраціі-нового-користувача" class="sidebar-link">4) Сценарій реєстрації нового користувача:</a></li><li class="sidebar-sub-header"><a href="/db-course-work/use%20cases/#_5-сценаріи-входу-користувача-в-иого-особистии-кабінет" class="sidebar-link">5) Сценарій входу користувача в його особистий кабінет:</a></li><li class="sidebar-sub-header"><a href="/db-course-work/use%20cases/#_6-сценаріи-створення-користувачем-опитування" class="sidebar-link">6) Сценарій створення користувачем опитування:</a></li><li class="sidebar-sub-header"><a href="/db-course-work/use%20cases/#_7-сценаріи-редагування-опитування" class="sidebar-link">7) Сценарій редагування опитування:</a></li><li class="sidebar-sub-header"><a href="/db-course-work/use%20cases/#_8-сценаріи-видалення-опитування" class="sidebar-link">8) Сценарій видалення опитування:</a></li><li class="sidebar-sub-header"><a href="/db-course-work/use%20cases/#_9-сценаріи-отримання-результатів-опитування" class="sidebar-link">9) Сценарій отримання результатів опитування:</a></li></ul></li><li><a href="/db-course-work/design/" class="sidebar-link">Проектування інформаційного забезпечення</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/db-course-work/design/#модель-бізнес-обʼєктів" class="sidebar-link">Модель бізнес-обʼєктів</a></li><li class="sidebar-sub-header"><a href="/db-course-work/design/#er-модель" class="sidebar-link">ER-модель</a></li><li class="sidebar-sub-header"><a href="/db-course-work/design/#реляціина-схема" class="sidebar-link">Реляційна схема</a></li></ul></li><li><a href="/db-course-work/software/" aria-current="page" class="active sidebar-link">Реалізація інформаційного та програмного забезпечення</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/db-course-work/software/#restfull-сервіс-для-управління-даними" class="sidebar-link">RESTfull сервіс для управління даними</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/db-course-work/software/#підключення-до-бази-даних" class="sidebar-link">Підключення до бази даних</a></li><li class="sidebar-sub-header"><a href="/db-course-work/software/#фаил-запуску-серверу" class="sidebar-link">Файл запуску серверу</a></li><li class="sidebar-sub-header"><a href="/db-course-work/software/#фаил-контролерів" class="sidebar-link">Файл контролерів</a></li><li class="sidebar-sub-header"><a href="/db-course-work/software/#фаил-запитів-до-бази-даних" class="sidebar-link">Файл запитів до бази даних</a></li></ul></li></ul></li><li><a href="/db-course-work/test/" class="sidebar-link">Тестування працездатності системи</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/db-course-work/conclusion/" class="sidebar-link">Висновки</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="реалізація-інформаціиного-та-програмного-забезпечення"><a href="#реалізація-інформаціиного-та-програмного-забезпечення" class="header-anchor">#</a> Реалізація інформаційного та програмного забезпечення</h1> <p>В рамках проекту розробляється:</p> <ul><li>SQL-скрипт для створення на початкового наповнення бази даних</li> <li>RESTfull сервіс для управління даними</li></ul> <h1 id="реалізація-інформаціиного-та-програмного-забезпечення-2"><a href="#реалізація-інформаціиного-та-програмного-забезпечення-2" class="header-anchor">#</a> Реалізація інформаційного та програмного забезпечення</h1> <p>В рамках проекту розробляється:</p> <ul><li>SQL-скрипт для створення на початкового наповнення бази даних</li> <li>RESTfull сервіс для управління даними</li></ul> <p>-- MySQL Script generated by MySQL Workbench
+-- Sun Dec 25 07:19:21 2022
+-- Model: New Model    Version: 1.0
+-- MySQL Workbench Forward Engineering</p> <p>SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';</p> <hr> <p>-- Schema mydb</p> <hr> <p>DROP SCHEMA IF EXISTS <code>mydb</code> ;</p> <hr> <p>-- Schema mydb</p> <hr> <p>CREATE SCHEMA IF NOT EXISTS <code>mydb</code> DEFAULT CHARACTER SET utf8 ;
+USE <code>mydb</code> ;</p> <hr> <p>-- Table <code>mydb</code>.<code>answer</code></p> <hr> <p>DROP TABLE IF EXISTS <code>mydb</code>.<code>answer</code> ;</p> <p>CREATE TABLE IF NOT EXISTS <code>mydb</code>.<code>answer</code> (
+<code>user_id</code> INT NOT NULL,
+<code>text</code> TEXT NOT NULL,
+<code>data</code> DATE NOT NULL,
+<code>id</code> INT NOT NULL AUTO_INCREMENT,
+<code>answer_id</code> INT NOT NULL,
+PRIMARY KEY (<code>id</code>),
+INDEX <code>fk_selectedOption_id_idx</code> (<code>answer_id</code> ASC) VISIBLE,
+INDEX <code>fk_user_id_idx</code> (<code>user_id</code> ASC) VISIBLE,
+CONSTRAINT <code>fk_selectedOption_id</code>
+FOREIGN KEY (<code>answer_id</code>)
+REFERENCES <code>mydb</code>.<code>selectedOption</code> (<code>id</code>)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION,
+CONSTRAINT <code>fk_user_id</code>
+FOREIGN KEY (<code>user_id</code>)
+REFERENCES <code>mydb</code>.<code>user</code> (<code>id</code>)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION);</p> <hr> <p>-- Table <code>mydb</code>.<code>category</code></p> <hr> <p>DROP TABLE IF EXISTS <code>mydb</code>.<code>category</code> ;</p> <p>CREATE TABLE IF NOT EXISTS <code>mydb</code>.<code>category</code> (
+<code>category_id</code> INT NOT NULL,
+<code>name</code> VARCHAR(255) NOT NULL,
+PRIMARY KEY (<code>category_id</code>));</p> <hr> <p>-- Table <code>mydb</code>.<code>option</code></p> <hr> <p>DROP TABLE IF EXISTS <code>mydb</code>.<code>option</code> ;</p> <p>CREATE TABLE IF NOT EXISTS <code>mydb</code>.<code>option</code> (
+<code>type</code> TEXT(255) NOT NULL,
+<code>text</code> TEXT(255) NOT NULL,
+<code>id</code> INT NOT NULL AUTO_INCREMENT,
+<code>question_id</code> INT NOT NULL,
+PRIMARY KEY (<code>id</code>),
+INDEX <code>fk_question_id_idx</code> (<code>question_id</code> ASC) VISIBLE,
+CONSTRAINT <code>fk_question_id</code>
+FOREIGN KEY (<code>question_id</code>)
+REFERENCES <code>mydb</code>.<code>question</code> (<code>id</code>)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION);</p> <hr> <p>-- Table <code>mydb</code>.<code>question</code></p> <hr> <p>DROP TABLE IF EXISTS <code>mydb</code>.<code>question</code> ;</p> <p>CREATE TABLE IF NOT EXISTS <code>mydb</code>.<code>question</code> (
+<code>type</code> TEXT(255) NOT NULL,
+<code>text</code> TEXT(255) NOT NULL,
+<code>id</code> INT NOT NULL AUTO_INCREMENT,
+<code>topic</code> TEXT(255) NOT NULL,
+<code>quiz_id</code> INT NOT NULL,
+PRIMARY KEY (<code>id</code>),
+INDEX <code>fk_quiz_id_idx</code> (<code>quiz_id</code> ASC) VISIBLE,
+CONSTRAINT <code>fk_quiz_id</code>
+FOREIGN KEY (<code>quiz_id</code>)
+REFERENCES <code>mydb</code>.<code>quiz</code> (<code>id</code>)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION);</p> <hr> <p>-- Table <code>mydb</code>.<code>quiz</code></p> <hr> <p>DROP TABLE IF EXISTS <code>mydb</code>.<code>quiz</code> ;</p> <p>CREATE TABLE IF NOT EXISTS <code>mydb</code>.<code>quiz</code> (
+<code>type</code> TEXT(255) NOT NULL,
+<code>text</code> TEXT(255) NOT NULL,
+<code>id</code> INT NOT NULL AUTO_INCREMENT,
+<code>topic</code> TEXT(255) NOT NULL,
+<code>date</code> DATETIME NOT NULL,
+<code>creator_id</code> INT NOT NULL,
+PRIMARY KEY (<code>id</code>),
+INDEX <code>fk_creator_id_idx</code> (<code>creator_id</code> ASC) VISIBLE,
+CONSTRAINT <code>fk_creator_id</code>
+FOREIGN KEY (<code>creator_id</code>)
+REFERENCES <code>mydb</code>.<code>user</code> (<code>id</code>)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION);</p> <hr> <p>-- Table <code>mydb</code>.<code>selectedOption</code></p> <hr> <p>DROP TABLE IF EXISTS <code>mydb</code>.<code>selectedOption</code> ;</p> <p>CREATE TABLE IF NOT EXISTS <code>mydb</code>.<code>selectedOption</code> (
+<code>id</code> INT NOT NULL AUTO_INCREMENT,
+<code>option_id</code> INT NOT NULL,
+PRIMARY KEY (<code>id</code>),
+INDEX <code>fk_option_id_idx</code> (<code>option_id</code> ASC) VISIBLE,
+CONSTRAINT <code>fk_option_id</code>
+FOREIGN KEY (<code>option_id</code>)
+REFERENCES <code>mydb</code>.<code>option</code> (<code>id</code>)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION);</p> <hr> <p>-- Table <code>mydb</code>.<code>user</code></p> <hr> <p>DROP TABLE IF EXISTS <code>mydb</code>.<code>user</code> ;</p> <p>CREATE TABLE IF NOT EXISTS <code>mydb</code>.<code>user</code> (
+<code>username</code> VARCHAR(16) NOT NULL,
+<code>mail</code> VARCHAR(255) NOT NULL,
+<code>id</code> INT NOT NULL AUTO_INCREMENT,
+PRIMARY KEY (<code>id</code>));</p> <p>SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;</p> <h2 id="restfull-сервіс-для-управління-даними"><a href="#restfull-сервіс-для-управління-даними" class="header-anchor">#</a> RESTfull сервіс для управління даними</h2> <h3 id="підключення-до-бази-даних"><a href="#підключення-до-бази-даних" class="header-anchor">#</a> Підключення до бази даних</h3> <div class="language- extra-class"><pre class="language-text"><code>const mysql = require(&quot;mysql2&quot;);
+
+const connectionOptions = {
+  host: &quot;localhost&quot;,
+  user: &quot;root&quot;,
+  password: &quot;Qwerty123&quot;,
+  database: &quot;mydb&quot;,
+};
+
+const pool = mysql.createConnection(connectionOptions);
+
+module.exports = { pool };
+
+</code></pre></div><h3 id="фаил-запуску-серверу"><a href="#фаил-запуску-серверу" class="header-anchor">#</a> Файл запуску серверу</h3> <div class="language- extra-class"><pre class="language-text"><code>const express = require(&quot;express&quot;);
+const Controllers = require(&quot;./controllers&quot;);
+const app = express();
+const jsonParse = express.json();
+
+app.get(&quot;/survey/question/:id&quot;, Controllers.getQuestion);
+
+app.get(&quot;/survey/questions/&quot;, Controllers.getQuestions);
+
+app.post(&quot;/survey/question/&quot;, jsonParse, Controllers.createQuestion);
+
+app.delete(&quot;/survey/question/:id&quot;, Controllers.deleteQuestion);
+
+app.put(&quot;/survey/question/:id&quot;, jsonParse, Controllers.updateQuestion);
+
+app.listen(2222);
+
+</code></pre></div><h3 id="фаил-контролерів"><a href="#фаил-контролерів" class="header-anchor">#</a> Файл контролерів</h3> <div class="language- extra-class"><pre class="language-text"><code>const Model = require(&quot;./model&quot;);
+
+class Controllers {
+  static resHandler = (res, data) =&gt; {
+    if (data) {
+      res.send(data);
+    } else {
+      res.sendStatus(404);
+    }
+  };
+
+  static getQuestion = async (req, res) =&gt; {
+    await Model.getQuestionById(req.params).then((result) =&gt; {
+      this.resHandler(res, result);
+    });
+  };
+  static getQuestions = async (req, res) =&gt; {
+    await Model.getAllQuestions().then((result) =&gt; {
+      this.resHandler(res, result);
+    });
+  };
+  static createQuestion = async (req, res) =&gt; {
+    if (!req.body) return res.sendStatus(400);
+    const id = Math.ceil(Math.random() * (100 - 1) * Math.random() * (100 - 1));
+    await Model.postQuestion({ id, ...req.body })
+      .then(() =&gt; Model.getQuestionById({ id }))
+      .then((result) =&gt; {
+        this.resHandler(res, result);
+      });
+  };
+  static deleteQuestion = async (req, res) =&gt; {
+    await Model.deleteQuestionById(req.params).then((result) =&gt; {
+      this.resHandler(res, result);
+    });
+  };
+  static updateQuestion = async (req, res) =&gt; {
+    if (!req.body) return res.sendStatus(400);
+    await Model.updateQuestionById(req.params, req.body)
+      .then(() =&gt; Model.getQuestionById(req.params))
+      .then((result) =&gt; {
+        this.resHandler(res, result);
+      });
+  };
+}
+
+module.exports = Controllers;
+
+</code></pre></div><h3 id="фаил-запитів-до-бази-даних"><a href="#фаил-запитів-до-бази-даних" class="header-anchor">#</a> Файл запитів до бази даних</h3> <div class="language- extra-class"><pre class="language-text"><code>const { pool } = require(&quot;./pool&quot;);
+
+class Model {
+  static dbHandler = (sql) =&gt; {
+    return new Promise((resolve) =&gt; {
+      pool.connect(function(err) {
+        if (err) throw err;
+        return pool.query(sql, (err, result) =&gt; {
+          if (err) throw err;
+          resolve(result);
+        });
+      });
+    });
+  };
+  static getQuestionById = ({ id }) =&gt; {
+    const sql = `SELECT * FROM mydb.question WHERE id = ${id}`;
+    return this.dbHandler(sql);
+  };
+  static getAllQuestions = () =&gt; {
+    const sql = `SELECT * from mydb.question`;
+    return this.dbHandler(sql);
+  };
+  static postQuestion = ({ id, type, text, quiz_id, topic }) =&gt; {
+    const sql = `INSERT INTO mydb.question (id, type, text, quiz_id, topic) VALUES (${id},\&quot;${type}\&quot;, \&quot;${text}\&quot;, ${quiz_id}, \&quot;${topic}\&quot;)`;
+    return this.dbHandler(sql);
+  };
+  static deleteQuestionById = ({ id }) =&gt; {
+    const sql = `DELETE FROM mydb.question WHERE id = ${id}`;
+    return this.dbHandler(sql).then(
+      () =&gt; `Question with id: ${id} was deleted!`
+    );
+  };
+  static updateQuestionById = ({ id }, { type, text, quiz_id, topic }) =&gt; {
+    const sql = `UPDATE mydb.question SET type = \&quot;${type}\&quot;, text = \&quot;${text}\&quot;, quiz_id = \&quot;${quiz_id}\&quot;, topic = \&quot;${topic}\&quot; WHERE id = ${id} `;
+    return this.dbHandler(sql);
+  };
+}
+
+module.exports = Model;
+
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Останнє оновлення:</span> <span class="time">1/3/2023, 11:37:55 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/db-course-work/design/" class="prev">
+        Проектування інформаційного забезпечення
+      </a></span> <span class="next"><a href="/db-course-work/test/">
+        Тестування працездатності системи
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/db-course-work/assets/js/app.764ea130.js" defer></script><script src="/db-course-work/assets/js/2.1f2f047a.js" defer></script><script src="/db-course-work/assets/js/22.0397e7ef.js" defer></script>
+  </body>
+</html>
