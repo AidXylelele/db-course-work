@@ -159,3 +159,141 @@ CREATE TABLE IF NOT EXISTS `mydb`.`user` (
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+## RESTfull сервіс для управління даними
+
+### Підключення до бази даних
+
+```
+const mysql = require("mysql2");
+
+const connectionOptions = {
+  host: "localhost",
+  user: "root",
+  password: "Qwerty123",
+  database: "mydb",
+};
+
+const pool = mysql.createConnection(connectionOptions);
+
+module.exports = { pool };
+
+```
+
+### Файл запуску серверу
+```
+const express = require("express");
+const Controllers = require("./controllers");
+const app = express();
+const jsonParse = express.json();
+
+app.get("/survey/question/:id", Controllers.getQuestion);
+
+app.get("/survey/questions/", Controllers.getQuestions);
+
+app.post("/survey/question/", jsonParse, Controllers.createQuestion);
+
+app.delete("/survey/question/:id", Controllers.deleteQuestion);
+
+app.put("/survey/question/:id", jsonParse, Controllers.updateQuestion);
+
+app.listen(2222);
+
+```
+
+### Файл контролерів
+
+```
+const Model = require("./model");
+
+class Controllers {
+  static resHandler = (res, data) => {
+    if (data) {
+      res.send(data);
+    } else {
+      res.sendStatus(404);
+    }
+  };
+
+  static getQuestion = async (req, res) => {
+    await Model.getQuestionById(req.params).then((result) => {
+      this.resHandler(res, result);
+    });
+  };
+  static getQuestions = async (req, res) => {
+    await Model.getAllQuestions().then((result) => {
+      this.resHandler(res, result);
+    });
+  };
+  static createQuestion = async (req, res) => {
+    if (!req.body) return res.sendStatus(400);
+    const id = Math.ceil(Math.random() * (100 - 1) * Math.random() * (100 - 1));
+    await Model.postQuestion({ id, ...req.body })
+      .then(() => Model.getQuestionById({ id }))
+      .then((result) => {
+        this.resHandler(res, result);
+      });
+  };
+  static deleteQuestion = async (req, res) => {
+    await Model.deleteQuestionById(req.params).then((result) => {
+      this.resHandler(res, result);
+    });
+  };
+  static updateQuestion = async (req, res) => {
+    if (!req.body) return res.sendStatus(400);
+    await Model.updateQuestionById(req.params, req.body)
+      .then(() => Model.getQuestionById(req.params))
+      .then((result) => {
+        this.resHandler(res, result);
+      });
+  };
+}
+
+module.exports = Controllers;
+
+```
+
+### Файл запитів до бази даних
+
+```
+const { pool } = require("./pool");
+
+class Model {
+  static dbHandler = (sql) => {
+    return new Promise((resolve) => {
+      pool.connect(function(err) {
+        if (err) throw err;
+        return pool.query(sql, (err, result) => {
+          if (err) throw err;
+          resolve(result);
+        });
+      });
+    });
+  };
+  static getQuestionById = ({ id }) => {
+    const sql = `SELECT * FROM mydb.question WHERE id = ${id}`;
+    return this.dbHandler(sql);
+  };
+  static getAllQuestions = () => {
+    const sql = `SELECT * from mydb.question`;
+    return this.dbHandler(sql);
+  };
+  static postQuestion = ({ id, type, text, quiz_id, topic }) => {
+    const sql = `INSERT INTO mydb.question (id, type, text, quiz_id, topic) VALUES (${id},\"${type}\", \"${text}\", ${quiz_id}, \"${topic}\")`;
+    return this.dbHandler(sql);
+  };
+  static deleteQuestionById = ({ id }) => {
+    const sql = `DELETE FROM mydb.question WHERE id = ${id}`;
+    return this.dbHandler(sql).then(
+      () => `Question with id: ${id} was deleted!`
+    );
+  };
+  static updateQuestionById = ({ id }, { type, text, quiz_id, topic }) => {
+    const sql = `UPDATE mydb.question SET type = \"${type}\", text = \"${text}\", quiz_id = \"${quiz_id}\", topic = \"${topic}\" WHERE id = ${id} `;
+    return this.dbHandler(sql);
+  };
+}
+
+module.exports = Model;
+
+```
